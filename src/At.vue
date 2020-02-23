@@ -75,6 +75,12 @@ export default {
     scrollRef: {
       type: String,
       default: ''
+    },
+    processItem: {
+      type: Function,
+      default: (list, cur, suffix) => {
+        return itemName(list[cur]) + suffix
+      }
     }
   },
 
@@ -468,7 +474,7 @@ export default {
         const html = this.$refs.embeddedItem.firstChild.innerHTML
         this.insertHtml(html, r);
       } else {
-        const t = itemName(curItem) + suffix
+        const t = processItem(list, cur, suffix)
         this.insertText(t, r);
       }
 

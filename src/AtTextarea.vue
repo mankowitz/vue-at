@@ -147,7 +147,7 @@ export default {
       el.selectionStart = start
       el.focus() // textarea必须focus回来
       const curItem = list[cur]
-      const t = itemName(curItem) + suffix
+      const t = processItem(list, cur, suffix)
       this.insertText(t, el)
       this.$emit('insert', curItem)
       this.handleInput()

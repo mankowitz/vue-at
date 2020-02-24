@@ -81,6 +81,10 @@ export default {
       default: (list, cur, suffix) => {
         return itemName(list[cur]) + suffix
       }
+    },
+    removeAtChar: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -409,9 +413,10 @@ export default {
       const node = r.endContainer
       if (node.nodeType === Node.TEXT_NODE) {
         const cut = r.endOffset
-        node.data = node.data.slice(0, cut) +
+        const offset = this.removeAtChar ? 1 : 0
+        node.data = node.data.slice(0, cut - offset) +
           text + node.data.slice(cut)
-        r.setEnd(node, cut + text.length)
+        r.setEnd(node, cut + text.length - offset)
       } else {
         const t = document.createTextNode(text)
         r.insertNode(t)

@@ -150,7 +150,7 @@ export default {
       el.selectionStart = start;
       el.focus(); // textarea必须focus回来
       const curItem = list[cur];
-      const t = processItem(list, cur, suffix);
+      const t = this.processItem(list, cur, suffix);
       this.insertText(t, el);
       this.$emit("insert", curItem);
       this.handleInput();

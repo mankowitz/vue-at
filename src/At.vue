@@ -479,7 +479,7 @@ export default {
         const html = this.$refs.embeddedItem.firstChild.innerHTML
         this.insertHtml(html, r);
       } else {
-        const t = processItem(list, cur, suffix)
+        const t = this.processItem(list, cur, suffix)
         this.insertText(t, r);
       }
 

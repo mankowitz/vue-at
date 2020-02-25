@@ -79,7 +79,7 @@ export default {
     processItem: {
       type: Function,
       default: (list, cur, suffix) => {
-        return itemName(list[cur]) + suffix
+        return this.itemName(list[cur]) + suffix
       }
     },
     removeAtChar: {
